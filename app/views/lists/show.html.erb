@@ -14,6 +14,7 @@
 
 <%= link_to 'Add New Items to List', new_item_path('id': @list.id) %>
 <%= link_to 'Edit List Name', edit_list_path(@list) %>
+<%= link_to 'Delete List', list_path(@list.id), method: :delete, data: {confirm: 'Really delete this item?'} %>
 <br />
 
 <%= render(partial: 'nav_bar') %>
