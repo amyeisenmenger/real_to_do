@@ -1,6 +1,7 @@
 <h1>Add New Item to <%= @list.name %></h1>
 <hr />
 <%= render(partial: 'form') %>
+
 <hr />
 <%= link_to 'Home', root_path %> |
 <%= link_to 'Return to List', list_path(@list.id) %>
