@@ -5,6 +5,8 @@
 <%= @item.priority %>
 <h3> Completed? </h3>
 <%= @item.complete %> 
-<%= link_to 'Edit Item', edit_item_path %>
-<%= link_to 'Delete Item', item_path(@item.id), method: :delete, data: {confirm: 'Really delete this item?'} %>
+<br />
+<br />
+<%= link_to 'Edit Item', edit_item_path(@item.id) %> |
+<%= link_to 'Delete Item', item_path(@item.id), method: :delete, data: {confirm: 'Really delete this item?'} %> |
 <%= link_to 'Return to List', list_path(@item[:list_id]) %>
