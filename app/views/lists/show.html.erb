@@ -1,0 +1,19 @@
+<h1><%= @list.name %></h1>
+<% if @items.any? %>
+  <ul>
+    <% @items.each do |item| %>
+      <li>
+        <%= link_to item.name, item_path(item) %>
+      </li>
+    <% end %>
+  </ul>
+
+<% else %>
+  <h3>There are no items in this list</h3>
+<% end %>
+
+<%= link_to 'Add New Items to List', new_item_path('id': @list.id) %>
+<%= link_to 'Edit List Name', edit_list_path(@list) %>
+<br />
+
+<%= render(partial: 'nav_bar') %>

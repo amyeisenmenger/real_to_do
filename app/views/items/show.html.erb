@@ -1,0 +1,13 @@
+<h1>Items in <%= @list.name %></h1>
+<% if @items.any? %>
+  <ol>
+    <% @items.each do |item|%>
+      <li>
+        <%= link_to item.name, item_path(item) %>
+      </li>
+    <% end %>
+  </ol>
+  <% else %>
+    <h3>There are no items in this list</h3
+<% end %>
+<%= link_to 'Add Item', new_item_path %>
