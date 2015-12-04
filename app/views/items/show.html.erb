@@ -1,13 +1,10 @@
-<h1>Items in <%= @list.name %></h1>
-<% if @items.any? %>
-  <ol>
-    <% @items.each do |item|%>
-      <li>
-        <%= link_to item.name, item_path(item) %>
-      </li>
-    <% end %>
-  </ol>
-  <% else %>
-    <h3>There are no items in this list</h3
-<% end %>
-<%= link_to 'Add Item', new_item_path %>
+<h1>Item <%= @item.name %> in <%= @list.name %></h1>
+<h2> Description </h2>
+<%= @item.description %>
+<h3> Priority </h3>
+<%= @item.priority %>
+<h3> Completed? </h3>
+<%= @item.complete %> 
+<%= link_to 'Edit Item', edit_item_path %>
+<%= link_to 'Return to List', list_path(@item[:list_id]) %>
+<

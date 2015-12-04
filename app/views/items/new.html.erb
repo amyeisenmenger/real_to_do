@@ -1,5 +1,4 @@
 <h1>Add New Items to <%= @list.name %></h1>
-<% @this_list = @list.id %>
 <%= form_for @item do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>

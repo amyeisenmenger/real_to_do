@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
 
   def show
-    @list = List.find(params[:id])
-    @items = @list.items.all
+    @item = Item.find(params[:id])
+    @list = List.find(@item[:list_id])
   end
 
   def new
@@ -12,21 +12,34 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # @item[:list_id] = @list.id
-
     if @item.save
-      binding.pry
-      redirect_to item_path(params[:list_id])
+      redirect_to list_path(@item[:list_id])
+    else
+      # TODO: error message
+      render :new
     end
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to item_path(@item)
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      redirect_to list_path(@item[:list_id])
+    else
+      redirect_to item_path(@item)
+    end
   end
 
   private
