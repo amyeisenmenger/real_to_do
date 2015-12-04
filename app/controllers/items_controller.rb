@@ -6,14 +6,14 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
-    @list = List.find(params[:id])
+    @item = Item.new(list_id: params[:list_id])
+    @list = List.find(params[:list_id])
   end
 
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to list_path(@item[:list_id])
+      redirect_to list_path(@item.list_id)
     else
       # TODO: error message
       render :new
@@ -36,7 +36,7 @@ class ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     if @item.destroy
-      redirect_to list_path(@item[:list_id])
+      redirect_to list_path(@item.list_id)
     else
       redirect_to item_path(@item)
     end

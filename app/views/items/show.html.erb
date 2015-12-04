@@ -1,4 +1,5 @@
 <h1>Item <%= @item.name %> in <%= @list.name %></h1>
+<hr />
 <h2> Description </h2>
 <%= @item.description %>
 <h3> Priority </h3>
@@ -6,7 +7,5 @@
 <h3> Completed? </h3>
 <%= @item.complete %> 
 <br />
-<br />
-<%= link_to 'Edit Item', edit_item_path(@item.id) %> |
-<%= link_to 'Delete Item', item_path(@item.id), method: :delete, data: {confirm: 'Really delete this item?'} %> |
-<%= link_to 'Return to List', list_path(@item[:list_id]) %>
+
+<%= render(partial: 'nav_bar') %>

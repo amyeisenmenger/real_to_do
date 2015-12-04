@@ -1,4 +1,5 @@
 <h1><%= @list.name %></h1>
+<hr />
 <% if @items.any? %>
   <ul>
     <% @items.each do |item| %>
@@ -12,7 +13,7 @@
   <h3>There are no items in this list</h3>
 <% end %>
 
-<%= link_to 'Add New Items to List', new_item_path('id': @list.id) %> |
+<%= link_to 'Create New Item', new_item_path(list_id: @list.id) %> |
 <%= link_to 'Edit List Name', edit_list_path(@list) %> |
 <%= link_to 'Delete List', list_path(@list.id), method: :delete, data: {confirm: 'Really delete this item?'} %>
 <br />

@@ -1,6 +1,6 @@
 <h1>Edit <%= @item.name %> </h1>
+<hr />
 <%= render(partial: 'form') %>
 
 <br />
-<%= link_to 'Delete Item', item_path(@item.id), method: :delete, data: {confirm: 'Really delete this item?'} %> |
-<%= link_to 'Return to List', list_path(@item[:list_id]) %>
+<%= render(partial: 'nav_bar') %>
